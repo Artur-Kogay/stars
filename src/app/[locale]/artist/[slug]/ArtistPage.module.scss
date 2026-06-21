@@ -6,6 +6,7 @@
   padding: 0.75rem;
   margin: 0 auto;
   align-items: flex-start;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     gap: 2rem;
@@ -178,6 +179,8 @@
 
 .products {
   margin-top: 12px;
+  width: 100%;
+  min-width: 0;
 
   &_title {
     font-size: 2rem;
