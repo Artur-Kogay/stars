@@ -1,0 +1,1 @@
+export const LOCALIZATIONS = ['ru', 'en', 'ky']

@@ -1,0 +1,1 @@
+export {default as BannersCarousel} from './bannersCarousel/BannersCarousel'

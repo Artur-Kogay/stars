@@ -1,0 +1,30 @@
+{
+  "appHeader": {
+    "main": "Башкы бет",
+    "catalog": "Каталог"
+  },
+  "filterLinks": {
+    "all": "Баары",
+    "artists": "Сүрөтчүлөр",
+    "singers": "Ырчылар",
+    "comedians": "Куудулдар"
+  },
+  "productsTitle": "Товарлор",
+  "artistsTitle": "Артисттер",
+  "catalogPageTitle": "Товарлардын каталогу",
+  "catalogPageSubtitle": "Биздин артисттердин бардык товарлары бир жерде",
+  "artistsProductsTitle": "Артисттин товарлору",
+  "description": "Сүрөттөлүшү",
+  "search": "Издөө",
+  "buy": "Сатып алуу",
+  "pay": "Төлөө",
+  "checkoutTitle": "Заказды тариздөө",
+  "checkoutSubtitle": "Төлөмгө өтүү үчүн маалыматтарды толтуруңуз",
+  "fullName": "Аты-жөнү",
+  "phoneNumber": "Телефон номери",
+  "totalToPay": "Төлөнүүчү сумма",
+  "navigation": "Навигация",
+  "contacts": "Байланыштар",
+  "help": "Жардам",
+  "newProductBadge": "Жаңы"
+}

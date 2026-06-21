@@ -1,0 +1,5 @@
+export * from './header'
+export * from './contentSection'
+export * from './footer'
+export * from './artistsSection'
+export * from './asideBar'

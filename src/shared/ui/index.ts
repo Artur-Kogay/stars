@@ -1,0 +1,6 @@
+export {default as SearchInput} from './searchInput/SearchInput'
+export {default as Container} from './container/Container'
+export {default as SwitchThemeBtn} from './switchThemeBtn/SwitchThemeBtn'
+export {default as LabelInput} from './labelInput/LabelInput'
+export {default as SwitchLocalizationBtn} from './switchLocalizationBtn/SwitchLocalizationBtn'
+export {default as Loader} from './loader/Loader'

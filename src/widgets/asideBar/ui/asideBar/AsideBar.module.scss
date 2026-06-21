@@ -1,0 +1,164 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  pointer-events: none;
+  background: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.overlayOpen {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.panel {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  max-height: 88dvh;
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+  padding: 16px 20px;
+
+  :global([data-theme='dark']) & {
+    background: color(display-p3 .067 .067 .067);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    bottom: 0;
+    left: auto;
+    width: 420px;
+    max-width: 92vw;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+}
+
+.panelOpen {
+  transform: translateY(0);
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h4 {
+    :global([data-theme='dark']) & {
+      color: color(display-p3 0.706 0.706 0.706);
+    }
+  }
+
+  .productInfo {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    gap: 10px;
+
+    p {
+      font-weight: 500;
+    }
+
+    img {
+      border-radius: 10px;
+    }
+  }
+}
+
+.divider {
+  margin-top: 12px;
+
+  :global([data-theme='dark']) & {
+    background: color(display-p3 0.228 0.228 0.228);
+  }
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+
+  input {
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 12px;
+  }
+}
+
+.footer {
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
+  .footer_price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    h3 {
+      color: color(display-p3 0.706 0.706 0.706);
+    }
+
+    h2 {
+      font-weight: 500;
+    }
+  }
+
+  .footer_btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 10px;
+
+    .payBtn {
+      padding: 14px;
+      background: color(display-p3 0.973 0.796 0.184);
+      border-radius: 10px;
+      font-size: 15px;
+      color: black;
+      font-weight: 700;
+
+      &:hover {
+        background: color(display-p3 .922 .733 .114);
+      }
+    }
+
+    .cancelBtn {
+      font-size: 13px;
+      color: color(display-p3 0.392 0.392 0.392);
+      transition: 0.2s;
+      font-weight: 500;
+
+      &:hover {
+        color: #fb3c46;
+      }
+    }
+  }
+}

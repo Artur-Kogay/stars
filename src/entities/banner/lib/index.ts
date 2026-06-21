@@ -1,0 +1,1 @@
+export type {IBannersCarousel} from './types/bannersCarousel.types'

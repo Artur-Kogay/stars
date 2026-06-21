@@ -1,0 +1,14 @@
+.navbar {
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .activeLink {
+    color: color(display-p3 0.973 0.796 0.184);
+  }
+}

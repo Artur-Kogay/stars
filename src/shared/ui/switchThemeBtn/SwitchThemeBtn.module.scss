@@ -1,0 +1,57 @@
+.root {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.25rem;
+  background: #f9f9f9;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.75rem;
+
+  :global([data-theme='dark']) & {
+    background: color(display-p3 0.098 0.098 0.098);
+    border: 1px solid color(display-p3 0.228 0.228 0.228);
+  }
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #646464;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  transition:
+          background 120ms ease,
+          color 120ms ease,
+          border-color 120ms ease;
+
+  :global([data-theme='dark']) & {
+    color: color(display-p3 0.706 0.706 0.706);
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: #202020;
+    }
+  }
+}
+
+.optionActive {
+  color: #202020;
+  background: #fcfcfc;
+  border-color: #d9d9d9;
+
+  :global([data-theme='dark']) & {
+    color: white;
+    background: black;
+    border: 1px solid color(display-p3 0.228 0.228 0.228);
+  }
+}

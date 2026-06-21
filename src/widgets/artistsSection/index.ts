@@ -1,0 +1,1 @@
+export {default as ArtistsSection} from './ui/ArtistsSection'

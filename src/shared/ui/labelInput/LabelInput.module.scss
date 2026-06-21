@@ -1,0 +1,18 @@
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .labelInput {
+      border: 1px solid black;
+      padding: 6px;
+      border-radius: 12px;
+
+    :global([data-theme='dark']) & {
+      border: 1px solid color(display-p3 0.706 0.706 0.706);
+      color: color(display-p3 0.706 0.706 0.706);
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@use 'tailwindcss';
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #0070f3;
+}
+
+[data-theme='dark'] {
+  background: color(display-p3 .067 .067 .067);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+input[type='search'] {
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
