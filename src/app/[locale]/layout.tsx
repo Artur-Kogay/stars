@@ -34,7 +34,7 @@ export default async function LocaleLayout({
 
   return (
       <html
-          lang={locale} // 👈 Подставляем динамически вместо статичного "en"
+          lang={locale}
           className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
           suppressHydrationWarning
       >

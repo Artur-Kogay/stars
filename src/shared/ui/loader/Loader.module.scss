@@ -14,6 +14,10 @@
   width: 100vw;
   height: 100vh;
   background: #fcfcfc;
+
+  :global([data-theme='dark']) & {
+    background: color(display-p3 .067 .067 .067);
+  }
 }
 
 .overlay {
@@ -32,7 +36,7 @@
   background: conic-gradient(
           from 0deg,
           transparent 0deg,
-          #0066cc 270deg,
+          rgb(253, 224, 71) 270deg,
           transparent 360deg
   );
   border-radius: 50%;
