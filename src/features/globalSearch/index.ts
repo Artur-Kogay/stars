@@ -1,0 +1,1 @@
+export {default as GlobalSearchInput} from './ui/GlobalSearchInput'

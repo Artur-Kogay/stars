@@ -1,19 +1,25 @@
 import styles from './Home.module.scss'
 import {BannersCarousel} from "@/entities";
 import {Container} from "@/shared";
-import {FilterArtistsList} from "@/features";
+import {FilterArtistsList, GlobalSearchInput} from "@/features";
 import {ArtistsSection, ContentSection} from "@/widgets";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
-    const localizer = useTranslations();
+interface HomeProps {
+    params: Promise<{ locale: string }>
+}
+
+export default async function Home({params}: HomeProps) {
+    const {locale} = await params;
+
+    const localizer = await getTranslations({locale});
   return (
       <div className={styles.content}>
         <Container className={'flex flex-col gap-6'}>
           <BannersCarousel />
-            <ContentSection title={localizer('productsTitle')}/>
             <FilterArtistsList />
-            <ArtistsSection title={localizer('artistsTitle')}/>
+            <ArtistsSection
+                title={localizer('artistsTitle')} />
         </Container>
       </div>
   );

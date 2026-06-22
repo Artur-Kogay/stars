@@ -1,0 +1,15 @@
+.spinner {
+  position: relative;
+  display: inline-block;
+  aspect-ratio: 1;
+  background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          rgb(253, 224, 71) 270deg,
+          transparent 360deg
+  );
+  border-radius: 50%;
+  mask: radial-gradient(circle, transparent 58%, #000 60%);
+  animation: snake-spin 0.9s linear infinite;
+  width: 32px;
+}

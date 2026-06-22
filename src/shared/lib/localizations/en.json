@@ -1,6 +1,6 @@
 {
   "appHeader": {
-    "main": "Home",
+    "main": "Stars",
     "catalog": "Catalog"
   },
   "filterLinks": {
@@ -10,7 +10,7 @@
     "comedians": "Comedians"
   },
   "productsTitle": "Products",
-  "artistsTitle": "Artists",
+  "artistsTitle": "Stars",
   "catalogPageTitle": "Product catalog",
   "catalogPageSubtitle": "All products of our artists in one place",
   "artistsProductsTitle": "Artist's products",

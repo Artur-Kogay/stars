@@ -1,6 +1,6 @@
 {
   "appHeader": {
-    "main": "Главная",
+    "main": "Звезды",
     "catalog": "Каталог"
   },
   "filterLinks": {
@@ -10,7 +10,7 @@
     "comedians": "Комики"
   },
   "productsTitle": "Товары",
-  "artistsTitle": "Артисты",
+  "artistsTitle": "Звезды",
   "catalogPageTitle": "Каталог товаров",
   "catalogPageSubtitle": "Все товары наших артистов в одном месте",
   "artistsProductsTitle": "Товары артиста",

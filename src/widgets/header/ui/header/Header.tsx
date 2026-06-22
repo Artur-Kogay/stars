@@ -1,13 +1,13 @@
+
 import styles from './Header.module.scss'
 import Image from "next/image";
 import Link from "next/link";
-import {Container, SearchInput, SwitchLocalizationBtn} from "@/shared";
+import {Container, SwitchLocalizationBtn} from "@/shared";
 import NavBar from "../navBar/NavBar";
-import {useTranslations} from "next-intl";
+import SearchButtonIcon from "../searchButtonIcon/SearchButtonIcon";
+import SnagSearchInput from "../snagSearchInput/SnagSearchInput";
 
 function Header() {
-    const localizer = useTranslations()
-
     return (
         <header className={"h-[63px] border-b border-[color(display-p3_0.849_0.849_0.849)"}>
             <Container className={'flex h-full w-full justify-between items-center gap-6'}>
@@ -20,9 +20,12 @@ function Header() {
                         height={36}
                         alt={'logo'} />
                 </Link>
-                <SearchInput className={styles.searchInput} placeholder={`${localizer('search')}...`} />
+                <SnagSearchInput />
                 <NavBar />
-                <SwitchLocalizationBtn />
+                <div className={'flex gap-2'}>
+                    <SearchButtonIcon />
+                    <SwitchLocalizationBtn />
+                </div>
             </Container>
         </header>
     );

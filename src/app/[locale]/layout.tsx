@@ -6,6 +6,7 @@ import {Footer, Header} from '@/widgets';
 import {ThemeProvider} from "next-themes";
 import {NextIntlClientProvider} from "next-intl";
 import {getMessages} from "next-intl/server";
+import {SearchOverlay} from '@/widgets'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,7 @@ export const metadata: Metadata = {
   description: "Marketplace for artists",
 };
 
-export default async function LocaleLayout({
-                                             children,
-                                             params,
-                                           }: {
+export default async function LocaleLayout({children, params,}: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
@@ -41,6 +39,7 @@ export default async function LocaleLayout({
       <body>
       <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
         <NextIntlClientProvider messages={messages}>
+            <SearchOverlay />
           <div className={styles.wrapper}>
             <Header />
             <main>{children}</main>

@@ -1,4 +1,5 @@
 @use 'tailwindcss';
+@use "sliders/slider-product";
 
 :root {
   --background-color: #ffffff;
@@ -6,9 +7,28 @@
   --primary-color: #0070f3;
 }
 
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: color(display-p3 0.973 0.796 0.184) !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+}
+
+.swiper-pagination-bullet {
+  background: color(display-p3 0.283 0.283 0.283) !important;
+}
+
+
 [data-theme='dark'] {
   background: color(display-p3 .067 .067 .067);
   color: white;
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: color(display-p3 0.973 0.796 0.184) !important;
+  }
+
+  .swiper-pagination-bullet {
+    background: color(display-p3 0.807 0.807 0.807) !important;
+  }
 }
 
 html {
@@ -51,4 +71,7 @@ input[type='search'] {
 *::-webkit-scrollbar {
   display: none;
 }
+
+
+
 

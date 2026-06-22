@@ -10,9 +10,10 @@ import {
 
 interface ContentSectionProps {
     title?: string;
+    searchQuery?: string;
 }
 
-const ArtistsSection = ({ title }: ContentSectionProps) => {
+const ArtistsSection = ({ title, searchQuery }: ContentSectionProps) => {
     const artists = useAtomValue(artistsAtom);
     const selectedCategory = useAtomValue(selectedArtistCategoryAtom);
 

@@ -1,6 +1,6 @@
 {
   "appHeader": {
-    "main": "Башкы бет",
+    "main": "Жылдыздар",
     "catalog": "Каталог"
   },
   "filterLinks": {
@@ -10,7 +10,7 @@
     "comedians": "Куудулдар"
   },
   "productsTitle": "Товарлор",
-  "artistsTitle": "Артисттер",
+  "artistsTitle": "Жылдыздар",
   "catalogPageTitle": "Товарлардын каталогу",
   "catalogPageSubtitle": "Биздин артисттердин бардык товарлары бир жерде",
   "artistsProductsTitle": "Артисттин товарлору",

@@ -1,9 +1,10 @@
 'use client';
 
 import styles from './ContentSection.module.scss';
-import ContentCard from '@/entities/content/ui/ContentCard';
+import {ContentCard} from '@/entities';
 import { useAtomValue } from 'jotai';
 import { productsAtom } from '@/shared';
+import {useMemo} from "react";
 
 interface ContentSectionProps {
     title?: string;
