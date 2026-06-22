@@ -47,15 +47,6 @@ function SearchOverlay() {
         replace(`${pathname}?${params.toString()}`, { scroll: false });
     };
 
-    const handleProductClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        const target = e.target as HTMLElement;
-        const isClickOnLink = target.closest('a');
-
-        if (isClickOnLink) {
-            handleCloseOverlay();
-        }
-    }
-
     return (
         <div className={clsx(styles.overlay, isActiveOverlay && styles.activeOverlay)}>
             {
@@ -76,9 +67,8 @@ function SearchOverlay() {
                         :
                         <div
                             className={styles.productsWrapper}
-                            onClick={handleProductClick}
                         >
-                            <OverlayProductsSection searchQuery={searchQuery}/>
+                            <OverlayProductsSection onClick={handleCloseOverlay} searchQuery={searchQuery}/>
                         </div>
                 }
             </Container>

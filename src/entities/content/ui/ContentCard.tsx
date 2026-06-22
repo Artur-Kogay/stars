@@ -3,7 +3,11 @@ import Link from 'next/link';
 import styles from './ContentCard.module.scss';
 import {useTranslations} from "next-intl";
 
-type ProductCardProps = {
+type BaseProps = {
+    onClick?: () => void;
+};
+
+type ProductCardProps = BaseProps & {
     type: 'product';
     slug: string;
     title: string;
@@ -13,7 +17,7 @@ type ProductCardProps = {
     new?: boolean;
 };
 
-type ArtistCardProps = {
+type ArtistCardProps = BaseProps &{
     type: 'artist';
     slug: string;
     name: string;
@@ -28,7 +32,9 @@ const ContentCard = (props: Props) => {
 
     if (props.type === 'product') {
         return (
-            <Link href={`/product/${props.slug}`} className={styles.root}>
+            <Link href={`/product/${props.slug}`}
+                  onClick={props.onClick}
+                  className={styles.root}>
                 {
                     props.new && (
                         <span className={styles.new}>{localizer('newProductBadge')}</span>

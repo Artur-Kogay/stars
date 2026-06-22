@@ -7,9 +7,10 @@ import {useMemo} from "react";
 
 interface OverlayProductsSectionProps {
     searchQuery?: string;
+    onClick?: () => void;
 }
 
-function OverlayProductsSection({searchQuery}: OverlayProductsSectionProps ) {
+function OverlayProductsSection({searchQuery, onClick}: OverlayProductsSectionProps ) {
 
     const products = useAtomValue(productsAtom);
 
@@ -29,6 +30,7 @@ function OverlayProductsSection({searchQuery}: OverlayProductsSectionProps ) {
                 <ContentCard
                     key={item.id}
                     type="product"
+                    onClick={onClick}
                     {...item}
                 />
             ))}
