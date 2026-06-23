@@ -21,15 +21,15 @@
   z-index: 1002;
   display: flex;
   flex-direction: column;
-  max-height: 88dvh;
   background: #fff;
   border-radius: 18px 18px 0 0;
   transition: transform 0.3s ease;
   transform: translateY(100%);
   padding: 16px 20px;
+  overflow-y: auto;
 
   :global([data-theme='dark']) & {
-    background: color(display-p3 .067 .067 .067);
+    background: #121418;
   }
 
   @media screen and (min-width: 768px) {

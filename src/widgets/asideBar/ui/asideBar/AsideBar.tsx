@@ -65,7 +65,11 @@ const AsideBar = () => {
                         <h2>12990 сом</h2>
                     </div>
                     <div className={styles.footer_btns}>
-                        <button className={styles.payBtn}>{localizer('pay')}</button>
+                        <button
+                            className={styles.payBtn}
+                            form={'payment-form'}>
+                            {localizer('pay')}
+                        </button>
                     </div>
                 </div>
             </aside>

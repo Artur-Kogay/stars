@@ -7,12 +7,27 @@
 
   .labelInput {
       border: 1px solid black;
-      padding: 6px;
-      border-radius: 12px;
+      padding: 10px 6px;
+      border-radius: 8px;
+      transition: 0.1s;
 
     :global([data-theme='dark']) & {
-      border: 1px solid color(display-p3 0.706 0.706 0.706);
+      border: 1px solid ;
       color: color(display-p3 0.706 0.706 0.706);
+      background: #111317;
     }
   }
+}
+
+.labelInput:focus {
+  scale: 1.02;
+}
+
+.errorMessage {
+  color: #FF6B6B;
+  font-size: 14px;
+}
+
+.errorInput {
+  border: 1px solid #FF6B6B !important;
 }
