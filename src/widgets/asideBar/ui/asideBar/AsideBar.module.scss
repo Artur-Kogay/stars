@@ -85,6 +85,9 @@
 .divider {
   margin-top: 12px;
 
+  border: none;
+  border-top: 1px solid lab(79.2667 9.96342 51.0155);
+
   :global([data-theme='dark']) & {
     background: color(display-p3 0.228 0.228 0.228);
   }

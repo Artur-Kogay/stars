@@ -14,17 +14,17 @@ import styles from './BannersCarousel.module.scss';
 const MOCK_BANNERS = [
     {
         id: 1,
-        image_path: '/images/ex1.jpg',
+        image_path: '/images/hero.png',
         link: '/',
     },
     {
         id: 2,
-        image_path: '/images/ex2.png',
+        image_path: '/images/hero2.png',
         link: '/',
     },
     {
         id: 3,
-        image_path: '/images/ex3.png',
+        image_path: '/images/hero3.png',
         link: '/',
     },
 ];

@@ -10,6 +10,9 @@ import {AsideBar} from "@/widgets";
 import {useTranslations} from "next-intl";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import {useState} from "react";
+import { Swiper as SwiperType } from 'swiper';
+import clsx from "clsx";
 
 type ProductPageProps = {
     params: {
@@ -30,45 +33,60 @@ export default function ProductPage({ params }: ProductPageProps) {
     const [isOpen, setIsOpen] = useAtom(isAsideOpenAtom);
     const product = MOCK_PRODUCT;
     const localizer = useTranslations()
+    const [swiper, setSwiper] = useState<SwiperType | null>(null);
+    const [active, setActive] = useState(0);
 
     return (
         <div className={styles.root}>
             <section className={styles.hero}>
                 <div className={styles.posterWrap}>
-                    <Swiper pagination={true} modules={[Pagination, Autoplay]} autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }} className="slider-product"
-                    loop={true}>
-                        {
-                            product.image.map(image => (
-                                <SwiperSlide>
-                                    <Image
-                                        src={image}
-                                        alt={'hello'}
-                                        width={600}
-                                        height={600}
-                                        className={styles.poster}
-                                        priority
-                                    />
-                                </SwiperSlide>
-                            ))
-                        }
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        onSwiper={setSwiper}
+                        onSlideChange={(s) => setActive(s.realIndex)}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        loop
+                    >
+                        {product.image.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <Image
+                                    src={image}
+                                    alt={product.title}
+                                    width={600}
+                                    height={600}
+                                    className={styles.poster}
+                                />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </div>
 
+                <div className={styles.customPagination}>
+                    {product.image.map((img, index) => (
+                        <button
+                            key={index}
+                            className={clsx(active === index && styles.active, styles.customPagination_bullet)}
+                            onClick={() => swiper?.slideToLoop(index)}
+                        >
+                            <img src={img} alt={'pagination dot'} />
+                        </button>
+                    ))}
+                </div>
+
                 <div className={styles.info}>
+                    <p className={styles.author}>{product.author}</p>
+
                     <h1 className={styles.title}>{product.title}</h1>
 
                     <div className={styles.price}>
                         {product.price.toLocaleString('ru-RU')} сом
                     </div>
 
-                    <p className={styles.author}>Артист: {product.author}</p>
-
                     {product.description ? (
                         <section className={styles.descriptionSection}>
-                            <h2 className={styles.sectionTitle}>{localizer('description')}</h2>
                             <p className={styles.description}>{product.description}</p>
                         </section>
                     ) : null}

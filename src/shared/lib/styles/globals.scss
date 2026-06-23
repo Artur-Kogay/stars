@@ -19,7 +19,8 @@
 
 
 [data-theme='dark'] {
-  background: color(display-p3 .067 .067 .067);
+  //background: color(display-p3 .067 .067 .067);
+  background: lab(3.68884 0.864729 1.48878);
   color: white;
 
   .swiper-pagination-bullet.swiper-pagination-bullet-active {

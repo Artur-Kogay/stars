@@ -19,15 +19,46 @@
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "image"
+    "pagination"
+    "info";
   gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 90px minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-areas: "pagination image info";
+    align-items: start;
+  }
+}
+
+.customPagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  grid-area: pagination;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    gap: 1.5rem;
+    flex-direction: column;
   }
 
-  @media screen and (min-width: 1024px) {
-    gap: 2rem;
+  .active {
+    border: 3px solid lab(79.2667 9.96342 51.0155);
+  }
+
+  &_bullet {
+    width: 76px;
+    height: 76px;
+    border-radius: 25.92px;
+    border: 2px solid lab(94.2766 0.635952 7.66994 / 0.12);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 25.92px;
+    }
   }
 }
 
@@ -36,14 +67,16 @@
   width: 100%;
   overflow: hidden;
   border-radius: 1rem;
+  grid-area: image;
 }
 
 .poster {
   width: 100%;
-  height: auto;
+  max-height: 500px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 1rem;
+  border: 3px solid lab(79.2667 9.96342 51.0155);
 }
 
 .ageBadge {
@@ -64,15 +97,16 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
   min-width: 0;
+  grid-area: info;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
   color: #202020;
+  margin-top: 8px;
 
   :global([data-theme='dark']) & {
     color: white;
@@ -89,6 +123,8 @@
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 1;
+  letter-spacing: 0.1rem;
+  margin-top: 8px;
   color: #202020;
 
   :global([data-theme='dark']) & {
@@ -110,6 +146,7 @@
   border: none;
   border-radius: 0.75rem;
   transition: background 120ms ease;
+  margin-top: 30px;
 
   @media screen and (min-width: 768px) {
     max-width: 360px;
@@ -160,7 +197,14 @@
   border-radius: 16px;
 }
 
+.author {
+  font-size: 14px;
+  font-weight: 500;
+  color: lab(79.2667 9.96342 51.0155);
+}
+
 .descriptionSection {
+  margin-top: 20px;
   h2 {
     :global([data-theme='dark']) & {
       color: white;
