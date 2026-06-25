@@ -3,9 +3,11 @@
 import styles from './FormSendDataUserForPay.module.scss'
 import {LabelInput} from "@/shared";
 import {useTranslations} from "next-intl";
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {ISendDataUserForPaySchema, sendDataUserForPaySchema} from "../lib";
+import { PatternFormat } from 'react-number-format';
+import {useEffect} from "react";
 
 function FormSendDataUserForPay() {
     const localizer = useTranslations()
@@ -13,6 +15,7 @@ function FormSendDataUserForPay() {
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors },
     } = useForm<ISendDataUserForPaySchema>({
         resolver: zodResolver(sendDataUserForPaySchema),
@@ -24,8 +27,10 @@ function FormSendDataUserForPay() {
     });
 
     const onSubmit = (data: ISendDataUserForPaySchema) => {
-        console.log(data);
+        console.log("✅ SUBMIT OK", data);
     };
+
+    console.log("FORM RENDER")
 
     return (
         <form
@@ -40,11 +45,24 @@ function FormSendDataUserForPay() {
                 error={errors.fullName?.message}
             />
 
-            <LabelInput
-                label={localizer('phoneNumber')}
-                placeholder="+996 555 123 456"
-                {...register('phoneNumber')}
-                error={errors.phoneNumber?.message}
+            <Controller
+                name="phoneNumber"
+                control={control}
+                render={({ field }) => (
+                    <PatternFormat
+                        customInput={LabelInput}
+                        label={localizer('phoneNumber')}
+                        placeholder="+996 555 123 456"
+                        error={errors.phoneNumber?.message}
+                        format="+996 ### ### ###"
+                        mask="_"
+                        allowEmptyFormatting
+                        value={field.value}
+                        onValueChange={(values) => {
+                            field.onChange(values.value);
+                        }}
+                    />
+                )}
             />
 
             <LabelInput

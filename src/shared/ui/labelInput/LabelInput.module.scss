@@ -3,18 +3,28 @@
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: start;
+  gap: 2px;
+  border: 2px solid lab(79.2667 9.96342 51.0155);
+  border-radius: 8px;
+  padding: 10px 10px;
+  color: grey;
+
+  :global([data-theme='dark']) & {
+    background: rgb(22, 26, 31);
+    border: 1px solid lab(79.2667 9.96342 51.0155);
+  }
 
   .labelInput {
-      border: 1px solid lab(79.2667 9.96342 51.0155);
-      padding: 10px 6px;
-      border-radius: 8px;
-      transition: 0.1s;
+    transition: 0.1s;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    color: black !important;
 
     :global([data-theme='dark']) & {
-      border: 1px solid lab(79.2667 9.96342 51.0155);
-      color: color(display-p3 0.706 0.706 0.706);
-      background: #111317;
+      color: white !important;
+      background: rgb(22, 26, 31);
     }
   }
 }

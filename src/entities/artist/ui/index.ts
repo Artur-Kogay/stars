@@ -1,0 +1,1 @@
+export {default as ArtistCard} from './artistCard/ArtistCard'

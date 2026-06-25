@@ -1,12 +1,12 @@
 'use client';
 
 import styles from './ArtistsSection.module.scss';
-import ContentCard from '@/entities/content/ui/ContentCard';
 import { useAtomValue } from 'jotai';
 import {
     artistsAtom,
     selectedArtistCategoryAtom,
 } from '@/shared';
+import {ArtistCard} from "@/entities";
 
 interface ContentSectionProps {
     title?: string;
@@ -36,7 +36,7 @@ const ArtistsSection = ({ title, searchQuery }: ContentSectionProps) => {
 
             <div className={styles.grid}>
                 {filteredArtists.map((item) => (
-                    <ContentCard
+                    <ArtistCard
                         key={item.id}
                         type="artist"
                         name={item.name}

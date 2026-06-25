@@ -23,31 +23,33 @@ export const metadata: Metadata = {
   description: "Marketplace for artists",
 };
 
-export default async function LocaleLayout({children, params,}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+async function LocaleLayout({children, params,}: {
+    children: React.ReactNode;
+    params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  const messages = await getMessages();
+    const {locale} = await params;
+    const messages = await getMessages();
 
-  return (
-      <html
-          lang={locale}
-          className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-          suppressHydrationWarning
-      >
-      <body>
-      <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-        <NextIntlClientProvider messages={messages}>
-            <SearchOverlay />
-          <div className={styles.wrapper}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
-        </NextIntlClientProvider>
-      </ThemeProvider>
-      </body>
-      </html>
-  );
+    return (
+        <html
+            lang={locale}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            suppressHydrationWarning
+        >
+        <body className={'flex flex-col'}>
+        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+            <NextIntlClientProvider messages={messages}>
+                <SearchOverlay/>
+                <div className={styles.wrapper}>
+                    <Header/>
+                    <main className={'flex-1'}>{children}</main>
+                    <Footer/>
+                </div>
+            </NextIntlClientProvider>
+        </ThemeProvider>
+        </body>
+        </html>
+    );
 }
+
+export default LocaleLayout

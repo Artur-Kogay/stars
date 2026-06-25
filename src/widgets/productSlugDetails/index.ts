@@ -1,0 +1,1 @@
+export {default as ProductSlugDetailsContainer} from './ui/ProductSlugDetailsContainer/ProductSlugDetailsContainer'

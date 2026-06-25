@@ -1,0 +1,12 @@
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+  background: white;
+
+  :global([data-theme='dark']) & {
+    background: lab(3.68884% .864729 1.48878);
+  }
+}

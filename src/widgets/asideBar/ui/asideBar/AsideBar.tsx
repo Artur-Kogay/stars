@@ -2,12 +2,12 @@
 
 import { useAtom } from 'jotai';
 import { IoClose } from 'react-icons/io5';
-
 import styles from './AsideBar.module.scss';
 import {isAsideOpenAtom, LabelInput} from '@/shared';
 import Image from "next/image";
 import {FormSendDataUserForPay} from "@/features";
 import {useTranslations} from "next-intl";
+import { ReceiptText, UserRound } from "lucide-react";
 
 const AsideBar = () => {
     const [isOpen, setIsOpen] = useAtom(isAsideOpenAtom);
@@ -46,22 +46,33 @@ const AsideBar = () => {
                                width={100}
                                height={100}
                                priority/>
-                        <div>
+                        <div className={styles.productInfo_textInfo}>
                             <h4>Nike Aif Force 1</h4>
                             <p>12990 сом</p>
+                            <div>
+                                <p>Размер: XS</p>
+                                <p>Количество: 1шт.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <hr className={styles.divider}/>
 
-                <div className={styles.body}>
-                    <FormSendDataUserForPay />
-                </div>
+                <section className={styles.form}>
+                    <div className={styles.form_title}>
+                            <UserRound size={18} color={'lab(79.2667 9.96342 51.0155)'}/>
+                        <h2>Контактные данные</h2>
+                    </div>
+                    <div className={styles.body}>
+                        <FormSendDataUserForPay />
+                    </div>
+                </section>
 
                 <div className={styles.footer}>
-                    <hr className={styles.divider}/>
                     <div className={styles.footer_price}>
-                        <h3>{localizer('totalToPay')}</h3>
+                        <div>
+                            <ReceiptText size={18} color={'lab(79.2667 9.96342 51.0155)'}/>
+                            <h3>{localizer('totalToPay')}</h3>
+                        </div>
                         <h2>12990 сом</h2>
                     </div>
                     <div className={styles.footer_btns}>

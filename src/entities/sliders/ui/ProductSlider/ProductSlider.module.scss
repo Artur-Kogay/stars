@@ -1,0 +1,72 @@
+.root {
+  display: grid;
+  gap: 1rem;
+
+  grid-template-areas:
+    "image"
+    "pagination";
+
+  width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 90px minmax(0, 1fr);
+    grid-template-areas: "pagination image";
+    align-items: start;
+    max-width: 400px !important;
+  }
+}
+
+.pagination {
+  grid-area: pagination;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.paginationBullet {
+  width: 76px;
+  height: 76px;
+
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+
+  border-radius: 26px;
+  border: 2px solid lab(94.2766 0.635952 7.66994 / 0.12);
+
+  transition: border-color 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+.active {
+  border: 3px solid lab(79.2667 9.96342 51.0155);
+}
+
+.slider {
+  grid-area: image;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid lab(79.2667 9.96342 51.0155);
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+
+  display: block;
+}

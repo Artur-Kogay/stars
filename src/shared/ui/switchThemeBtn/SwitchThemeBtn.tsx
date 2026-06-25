@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 
 import styles from './SwitchThemeBtn.module.scss';
 import clsx from "clsx";
+import {useEffect, useState} from "react";
 
 const OPTIONS = [
     { value: 'light', Icon: Sun },
@@ -15,7 +16,16 @@ const OPTIONS = [
 type Theme = 'light' | 'dark' | 'system';
 
 const SwitchThemeBtn = () => {
+    const [componentMounted, setComponentMounted] = useState<boolean>(false)
     const { theme, setTheme } = useTheme();
+
+    useEffect(() => {
+        setComponentMounted(true);
+    }, []);
+
+    if (!componentMounted) {
+        return null;
+    }
 
     return (
         <div className={styles.root} role="radiogroup">

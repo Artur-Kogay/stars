@@ -13,9 +13,9 @@ function LabelInput({label, error, ...props}: LabelInputProps) {
             {
                 error && <span className={styles.errorMessage}>{error}</span>
             }
-            <label className={styles.label}>
+            <label className={clsx(styles.label, error && styles.errorInput)}>
                 {label}
-                <input className={clsx(styles.labelInput, error && styles.errorInput)} {...props}/>
+                <input className={styles.labelInput} {...props}/>
             </label>
         </div>
     );

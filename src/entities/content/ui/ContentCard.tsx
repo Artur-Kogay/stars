@@ -3,11 +3,7 @@ import Link from 'next/link';
 import styles from './ContentCard.module.scss';
 import {useTranslations} from "next-intl";
 
-type BaseProps = {
-    onClick?: () => void;
-};
-
-type ProductCardProps = BaseProps & {
+interface ProductCardProps {
     type: 'product';
     slug: string;
     title: string;
@@ -15,22 +11,12 @@ type ProductCardProps = BaseProps & {
     author: string;
     image?: string;
     new?: boolean;
+    onClick?: () => void;
 };
 
-type ArtistCardProps = BaseProps &{
-    type: 'artist';
-    slug: string;
-    name: string;
-    description: string;
-    image?: string;
-};
-
-type Props = ProductCardProps | ArtistCardProps;
-
-const ContentCard = (props: Props) => {
+const ContentCard = (props: ProductCardProps) => {
     const localizer = useTranslations();
 
-    if (props.type === 'product') {
         return (
             <Link href={`/product/${props.slug}`}
                   onClick={props.onClick}
@@ -48,29 +34,12 @@ const ContentCard = (props: Props) => {
                 </div>
 
                 <div className={styles.body}>
-                    <h3 className={styles.title}>{props.title}</h3>
                     <p className={styles.author}>{props.author}</p>
+                    <h3 className={styles.title}>{props.title}</h3>
                     <p className={styles.price}>{props.price} сом</p>
                 </div>
             </Link>
         );
-    }
-
-    return (
-        <Link href={`/artist/${props.slug}`} className={styles.root}>
-            <div className={styles.imageWrap}>
-                {props.image && (
-                    <Image src={props.image} alt={props.name} fill className={styles.image} />
-                )}
-            </div>
-
-            <div className={styles.body}>
-                <h3 className={styles.title}>{props.name}</h3>
-                <p className={styles.author}>{props.description}</p>
-                <p className={styles.countProducts}>10 товаров</p>
-            </div>
-        </Link>
-    );
 };
 
 export default ContentCard;

@@ -6,10 +6,11 @@ import {Container, SwitchLocalizationBtn} from "@/shared";
 import NavBar from "../navBar/NavBar";
 import SearchButtonIcon from "../searchButtonIcon/SearchButtonIcon";
 import SnagSearchInput from "../snagSearchInput/SnagSearchInput";
+import clsx from "clsx";
 
 function Header() {
     return (
-        <header className={"h-[63px] border-b border-[color(display-p3_0.849_0.849_0.849)"}>
+        <header className={clsx("h-[63px]", styles.header)}>
             <Container className={'flex h-full w-full justify-between items-center gap-6'}>
                 <Link href={'/'} className={'max-h-[36px]'}>
                     <Image

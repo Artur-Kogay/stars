@@ -1,0 +1,20 @@
+.btn {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  background: #ebbc63;
+
+  :global([data-theme='dark']) & {
+    background: lab(7.75945 1.76576 3.05969);
+    border: 1px solid lab(94.2766 0.635952 7.66994 / 0.12);
+    color: white;
+  }
+}
+
+.active {
+  border: 2px solid black;
+
+  :global([data-theme='dark']) & {
+    border: 1px solid lab(79.2667 9.96342 51.0155);
+  }
+}

@@ -1,3 +1,5 @@
 export * from './consts/headerNavLinks.const'
+export * from './consts/clothesSizes.const'
 export * from './localizations'
 export * from './hooks'
+export * from './types'
