@@ -1,9 +1,8 @@
 import styles from './ProductPage.module.scss';
-import 'swiper/css';
-import 'swiper/css/pagination';
 import {Container} from "@/shared";
 import {ProductSlider} from "@/entities";
 import {ProductSlugDetailsContainer} from "@/widgets";
+import Image from 'next/image'
 
 type ProductPageProps = {
     params: {
@@ -23,7 +22,25 @@ const MOCK_PRODUCT = {
 export default async function ProductPage({ params }: ProductPageProps) {
     return (
         <div className={styles.root}>
-            <div className={styles.bg} />
+            <div className={styles.bg}>
+                <Image
+                    src={'/images/hero5.png'}
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className={styles.lightImg}
+                />
+
+                <Image
+                    src={'/images/hero4.png'}
+                    alt=""
+                    fill
+                    priority
+                    sizes="100vw"
+                    className={styles.darkImg}
+                />
+            </div>
             <Container className={styles.content}>
             <section className={styles.hero}>
                 <ProductSlider products={MOCK_PRODUCT} />

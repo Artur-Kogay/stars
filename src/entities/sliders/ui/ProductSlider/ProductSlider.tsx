@@ -1,6 +1,8 @@
 'use client'
 
 import styles from './ProductSlider.module.scss'
+import 'swiper/css';
+import 'swiper/css/pagination';
 import {Autoplay} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 import Image from "next/image";
