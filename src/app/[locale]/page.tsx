@@ -6,11 +6,13 @@ import {ArtistsSection, ContentSection} from "@/widgets";
 import { getTranslations } from "next-intl/server";
 
 interface HomeProps {
-    params: Promise<{ locale: string }>
+    params: {
+        locale: string;
+    }
 }
 
 export default async function Home({params}: HomeProps) {
-    const {locale} = await params;
+    const {locale} = params;
 
     const localizer = await getTranslations({locale});
   return (

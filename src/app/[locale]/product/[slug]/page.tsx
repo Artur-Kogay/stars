@@ -2,7 +2,6 @@ import styles from './ProductPage.module.scss';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import {Container} from "@/shared";
-import {AsideBar} from "@/widgets";
 import {ProductSlider} from "@/entities";
 import {ProductSlugDetailsContainer} from "@/widgets";
 
@@ -21,7 +20,7 @@ const MOCK_PRODUCT = {
     images: ['/images/ex10.jpg', '/images/ex8.jpg', '/images/ex9.jpg'],
 };
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params }: ProductPageProps) {
     return (
         <div className={styles.root}>
             <div className={styles.bg} />

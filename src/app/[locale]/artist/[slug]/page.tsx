@@ -2,16 +2,15 @@ import Image from 'next/image';
 import styles from './ArtistPage.module.scss';
 import {ContentSection} from "@/widgets";
 import {useTranslations} from "next-intl";
-import Link from "next/link";
 import clsx from "clsx";
 import {Music, Package, Users} from "lucide-react";
 import {Container} from "@/shared";
 
-type ProductPageProps = {
+interface ArtistPageProps {
     params: {
         id: string;
     };
-};
+}
 
 const MOCK_PRODUCT =     {
     id: 1,
@@ -22,7 +21,7 @@ const MOCK_PRODUCT =     {
     slug: 'egor-krid',
 }
 
-export default function ArtistPage({ params }: ProductPageProps) {
+export default function ArtistPage({ params }: ArtistPageProps) {
     const product = MOCK_PRODUCT;
     const localizer = useTranslations()
 

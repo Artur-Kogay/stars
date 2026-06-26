@@ -1,1 +1,1 @@
-export * from './ui/Counter'
+export {default as Counter} from './ui/Counter'

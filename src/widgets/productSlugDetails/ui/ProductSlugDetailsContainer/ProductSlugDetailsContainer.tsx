@@ -1,27 +1,34 @@
 'use client';
 
 import styles from './ProductSlugDetailsContainer.module.scss';
-import {ChooseDetailBtn, CLOTHES_SIZES} from '@/shared';
+import {ChooseDetailBtn, CLOTHES_SIZES, isAsideOpenAtom} from '@/shared';
 import { useTranslations } from 'next-intl';
 import { Check } from 'lucide-react';
 import { useAtom } from 'jotai';
-import { isAsideOpenAtom } from '@/shared';
 import {IProductSlugDetails} from "../../lib";
-import Counter from "@/features/counter/ui/Counter";
-import {useState} from "react";
+import {Counter} from "@/features";
 import {AsideBar} from "@/widgets";
+import {paymentDataGatewayAtom} from '@/entities'
+import {useEffect} from "react";
 
 interface ProductSlugDetailsContainerProps extends IProductSlugDetails {}
 
 const ProductSlugDetailsContainer = ({ product }: ProductSlugDetailsContainerProps) => {
-    const [selectedSize, setSelectedSize] = useState<number | null>(null);
     const localizer = useTranslations();
     const [_, setIsAsideOpen] = useAtom(isAsideOpenAtom);
-    const [count, setCount] = useState<number>(1);
+    const [paymentDataGateway, setPaymentDataGateway] = useAtom(paymentDataGatewayAtom)
+
+    useEffect(() => {
+        setPaymentDataGateway({...paymentDataGateway, size: CLOTHES_SIZES[0].text})
+    }, []);
 
     return (
         <>
-            <AsideBar />
+            <AsideBar
+                productName={product.title}
+                productCount={paymentDataGateway.count}
+                productPrice={product.price}
+                productSize={paymentDataGateway?.size}/>
         <div className={styles.info}>
             <span className={styles.new}>{product.author}</span>
 
@@ -44,8 +51,8 @@ const ProductSlugDetailsContainer = ({ product }: ProductSlugDetailsContainerPro
                 <div className={styles.sizes_btns}>
                     {CLOTHES_SIZES.map(({ text, id }) => (
                         <ChooseDetailBtn
-                            onClick={() => setSelectedSize((id))}
-                            active={selectedSize === id}
+                            onClick={() => setPaymentDataGateway({...paymentDataGateway, size: text})}
+                            active={paymentDataGateway.size === text}
                             key={id}>
                             {text}
                         </ChooseDetailBtn>
@@ -54,7 +61,15 @@ const ProductSlugDetailsContainer = ({ product }: ProductSlugDetailsContainerPro
             </section>
 
             <div className={styles.btns}>
-                <Counter count={count} setCount={setCount} />
+                <Counter
+                    count={Number(paymentDataGateway.count)}
+                    setCount={(value) =>
+                        setPaymentDataGateway(prev => ({
+                            ...prev,
+                            count: value
+                        }))
+                    }
+                />
 
                 <button
                     className={styles.buyButton}

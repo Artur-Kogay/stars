@@ -3,6 +3,9 @@ import path from 'node:path'
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/shared/lib/localizations/i18n/request.ts');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -11,8 +14,8 @@ const nextConfig: NextConfig = {
       ]
   },
     experimental: {
-        optimizePackageImports: ['jotai', '@tanstack/react-query', 'clsx'],
+        optimizePackageImports: ['jotai', '@tanstack/react-query', 'clsx', 'Swiper'],
     },
 };
 
-export default withNextIntl(nextConfig);
+export default withBundleAnalyzer(withNextIntl(nextConfig));

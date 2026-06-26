@@ -4,18 +4,21 @@ import styles from './Counter.module.scss'
 
 interface CounterProps {
     count: number;
-    setCount: React.Dispatch<React.SetStateAction<number>>;
+    setCount: (value: number) => void;
 }
 
 function Counter({count = 1, setCount}: CounterProps) {
 
     const increment = () => {
-        setCount(prev => prev + 1);
+        setCount(count + 1);
     }
 
     const decrement = () => {
-        setCount(prev => prev > 1 ? prev - 1 : prev)
+        if (count > 1) {
+            setCount(count - 1);
+        }
     }
+
     return (
         <div className={styles.counter}>
             <button onClick={decrement}><Minus size={20}/></button>

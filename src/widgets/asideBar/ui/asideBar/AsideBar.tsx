@@ -3,13 +3,20 @@
 import { useAtom } from 'jotai';
 import { IoClose } from 'react-icons/io5';
 import styles from './AsideBar.module.scss';
-import {isAsideOpenAtom, LabelInput} from '@/shared';
+import {calculateTotalPrice, isAsideOpenAtom, LabelInput} from '@/shared';
 import Image from "next/image";
 import {FormSendDataUserForPay} from "@/features";
 import {useTranslations} from "next-intl";
 import { ReceiptText, UserRound } from "lucide-react";
 
-const AsideBar = () => {
+interface AsideBarProps {
+    productName: string,
+    productCount: string | number,
+    productPrice: string | number,
+    productSize?: string
+}
+
+const AsideBar = ({productName, productPrice, productCount, productSize}: AsideBarProps) => {
     const [isOpen, setIsOpen] = useAtom(isAsideOpenAtom);
     const localizer = useTranslations()
     const onClose = () => setIsOpen(false);
@@ -47,11 +54,11 @@ const AsideBar = () => {
                                height={100}
                                priority/>
                         <div className={styles.productInfo_textInfo}>
-                            <h4>Nike Aif Force 1</h4>
-                            <p>12990 сом</p>
+                            <h4>{productName}</h4>
+                            <p>{productPrice} сом</p>
                             <div>
-                                <p>Размер: XS</p>
-                                <p>Количество: 1шт.</p>
+                                <p>Размер: {productSize}</p>
+                                <p>Количество: {productCount}шт.</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +80,7 @@ const AsideBar = () => {
                             <ReceiptText size={18} color={'lab(79.2667 9.96342 51.0155)'}/>
                             <h3>{localizer('totalToPay')}</h3>
                         </div>
-                        <h2>12990 сом</h2>
+                        <h2>{calculateTotalPrice(productCount, productPrice)} сом</h2>
                     </div>
                     <div className={styles.footer_btns}>
                         <button

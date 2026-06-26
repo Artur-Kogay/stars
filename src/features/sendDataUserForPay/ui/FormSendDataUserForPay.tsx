@@ -7,10 +7,12 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {ISendDataUserForPaySchema, sendDataUserForPaySchema} from "../lib";
 import { PatternFormat } from 'react-number-format';
-import {useEffect} from "react";
+import {useAtom} from "jotai";
+import {paymentDataGatewayAtom} from "@/entities";
 
 function FormSendDataUserForPay() {
     const localizer = useTranslations()
+    const [paymentDataGateway, setPaymentDataGateway] = useAtom(paymentDataGatewayAtom)
 
     const {
         register,
@@ -27,7 +29,7 @@ function FormSendDataUserForPay() {
     });
 
     const onSubmit = (data: ISendDataUserForPaySchema) => {
-        console.log("✅ SUBMIT OK", data);
+        setPaymentDataGateway({...paymentDataGateway, ...data})
     };
 
     console.log("FORM RENDER")
