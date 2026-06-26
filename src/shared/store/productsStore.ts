@@ -13,7 +13,7 @@ export type Product = {
 export const productsAtom = atom<Product[]>([
     {
         id: 1,
-        title: 'Худи Black Oversize',
+        title: 'Худи Black Oversize eeeeewwwwwwwwwwwwwwww',
         price: 4990,
         author: 'Тимати',
         image: '/images/ex8.jpg',
